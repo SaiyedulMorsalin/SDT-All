@@ -30,22 +30,45 @@
         </nav>
     </header>
     <main>
-        <h1 class="text-center">This is Home Page.....</h1>
-        <h5>{{author}}</h5>
-        <h5>{{age}}</h5>
-        <h5>{{address}}</h5>
-        <h5>{{lst}}</h5>
-        <!-- Conditional Statements -->
-        {% if age >= 20 %}
-        <h4>You will get a driving license...</h4>
-        {% else %}
-        <h4>You are not eligible for a driving license yet.</h4>
-        {% endif %}
+        <div class="container">
+            <h1 class="text-center">This is Home Page.....</h1>
+            <h5>{{author}}</h5>
+            <h5>{{age}}</h5>
+            <h5>{{address}}</h5>
+            <h5>{{lst}}</h5>
+            <!-- Conditional Statements -->
+            {% if age >= 20 %}
+            <h4>You will get a driving license...</h4>
+            {% else %}
+            <h4>You are not eligible for a driving license yet.</h4>
+            {% endif %}
 
-        {%for i in lst%}
-        <h6>{{i}}</h6>
-        {%endfor%}
+            {%for i in lst%}
+            <h6>{{i}}</h6>
+            {% endfor %}
+            <!-- Django Template Filters -->
+            <!--  variable_name | filter_name  -->
+            <!-- GeeksforGeeks Django Templates Apply -->
+            <h6> author name length is : {{ author | length }}</h6>
+            <h6>Description: {{description}}</h6>
+            <h6>added an integer: {{4 | add:'2'}}</h6>
+            <h6>Capfirst: {{"saiyedul" | capfirst }}</h6>
+            <h6>center: {{"saiyedul" | center:"15"}}</h6>
+            <h6>cut : {{author | cut:" "}}</h6>
+            <h6>Today Now: {{birthday| date:"D d M Y"}}</h6>
+            <h6>Empty String: {{empty | default:"this empty string"}}</h6>
+            <h6> Course List: {{courses}}</h6>
+            <h6>Course List Sort in Dicsort: {{courses | dictsort:"fees"}}</h6>
+            <h6>Last Course : {{courses | last}}</h6>
+            <h6>Line Numbers Course : {{courses | linenumbers}}</h6>
+            <h6> Course : {{courses | lower}}</h6>
+            <h6> Course : {{courses | make_list}}</h6>
+            <h6>{{ courses | random }}</h6>
+            <h6>{{ courses | slice:":2" }}</h6>
+            <h6>{{ birth | timesince:comment_date }}</h6>
+            
 
+        </div>
     </main>
     <footer>
 
