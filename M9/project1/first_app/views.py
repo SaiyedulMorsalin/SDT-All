@@ -5,3 +5,7 @@ from django.http import HttpResponse
 
 def first_app(request):
     return HttpResponse("This is inside the firstapp..")
+
+
+def courses(request):
+    return HttpResponse("this is firstapp course page....")
