@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+  Register
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <h3 class="text-center mb-5">Register Form</h3>
+    <div class="d-flex justify-content-center">
+      <form class="w-25" method="post" action="/about/">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputName" class="form-label">Name</label>
+          <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter Name" name="user_name" />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail" class="form-label">Email</label>
+          <input type="email" class="form-control" id="exampleInputEmail" placeholder="Enter Email" name="user_email" />
+        </div>
+        <select class="form-select" aria-label="Default select example" name="select">
+          <option selected>Rating..</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
