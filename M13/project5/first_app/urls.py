@@ -5,4 +5,5 @@ urlpatterns = [
     path('about/',views.about,name='about_page'),
     path('form/',views.form_page,name='form_page'),
     path('django_form',views.django_form,name='django_form'),
+    path('student_form/',views.student_form,name='student_form'),
 ]
