@@ -1,5 +1,6 @@
 from django import forms 
 import datetime
+from . models import PracticeModel
 class PracticeForm(forms.Form):
     # Common Fields
     name = forms.CharField(initial='Your Name')
@@ -19,4 +20,9 @@ class PracticeForm(forms.Form):
     favorite_color = forms.ChoiceField(choices=FAVORITE_COLORS)
     select_color = forms.ChoiceField(widget=forms.RadioSelect,choices=FAVORITE_COLORS)
     multi_color = forms.MultipleChoiceField(choices=FAVORITE_COLORS)
-    
+
+
+class PDForm(forms.ModelForm):
+    class Meta:
+       model = PracticeModel
+       fields = '__all__'
