@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home_page,name='home_page'),
     path('',include('musicians.urls')),
+    path('album/',include('albums.urls')),
     # path('',include('albums.urls')),
     
 ]
