@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  Home Page
+{% endblock %}
+{% block main_content %}
+  {% comment %}style="max-width: 18rem;"{% endcomment %}
+  <h5 class="text-center">Task Page</h5>
+  <div class="container">
+    <div class="row">
+      {% for task in data %}
+        <div class="col-sm-4 mb-3 mb-sm-0">
+          <div class="card border-primary mb-3 text-bg-light">
+            <div class="card-header bg-transparent border-success">{{ task.id }}</div>
+            <div class="card-body">
+              <h5 class="card-title">{{ task.task_title }}</h5>
+              <h6 class="card-title">{{ task.task_description }}</h6>
+              <p class="card-text">Date: {{ task.task_assign_date }}</p>
+              <p class="card-text">
+                Category :{% for cat in task.categories.all %}
+                  <button class="btn btn-outline-primary btn-sm m-2" disabled>{{ cat.category_name }}</button>
+                {% endfor %}
+              </p>
+            </div>
+            <div class="card-footer bg-transparent border-success text-center">
+              {% if task.is_completed == False %}
+                <a class="text-white" href="{% url 'edit_task' task.id %}"><button type="button" class="btn btn-outline-warning text-dark">Edit</button></a>
+                <a class="text-white" href="{% url 'delete_task' task.id %}"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+              {% else %}
+                <button type="button" class="btn btn-outline-success" disabled>Completed</button>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
